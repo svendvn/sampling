@@ -1,0 +1,112 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Folkeskolepraktik - Bioinformatik</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+<h1>Bioinformatik <small>Sammenligning af genomer</small></h1>
+
+<p><em>Originalt udarbejdet af Andreas Sand Pedersen, med rettelser af Dan Søndergaard.</em></p>
+
+<center>
+<img src="gene-reordering.png"/>
+</center>
+
+<p>Du kan hente slides <a href="genomsortering.pdf">her</a>.</p>
+
+<h2>Introduktion</h2>
+
+<p>Hvis man vil sammenligne (næsten) hele arvemasser/genomer for to
+arter, er man ofte interesseret i at undersøge andre
+ligheder/forskelle end blot enkelte symboler. Man vælger ofte at
+fokusere på større elementer i arvemasse (f.eks. gener) og se
+hvorledes disse er ordnet i de to genomer. Hvis generne fra venstre
+mod højre i det ene genom nummereres 1, 2, ..., <em>N</em>, så kan
+rækkefølgen af de samme gener i det andet genom beskrives som en
+permutation af 1, 2, ..., <em>N</em> (en permutation af tallene 1, 2, 3, 4
+kan f.eks. være 1, 3, 4, 2).</p>
+
+<p>Indenfor biologien/bioinformatikken har man længe være
+interesseret i at kunne beregne det mindste antal <em>reversals</em>,
+der kan forklare forskellen mellem de to rækkefølger, da denne
+reversal-afstand siger noget om hvor beslægtede de to genomer er. En
+<em>reversal</em> svarer til at "vende en delstreng", som vist i dette
+eksempel:</p>
+
+<p>
+<img width=200px src="reversals.png" />
+</p>
+
+<p>
+hvor permutationen (5, 6, 4, 8, 3, 2, 1, 9, 7) sorteres med 6 reversals.
+</p>
+
+<h2>Spørgsmål</h2>
+<p>
+<strong>Spørgsmål 1</strong>: Hvor mange reversals skal I bruge på at sortere permutationen:
+</p>
+
+<pre>
+3, 2, 1, 4, 5, 6, 8, 7, 9, 10, 13, 14, 15, 12, 11, 16, 17, 18, 19, 20
+</pre>
+
+<p>
+<strong>Spørgsmål 2</strong>: Hvor mange reversals skal I bruge på at sortere permutationen:
+</p>
+
+<pre>
+17, 1, 2, 3, 8, 12, 6, 19, 13, 20, 14, 5, 15, 16, 18, 4, 9, 10, 11, 7
+</pre>
+
+<p> <strong>Spørgsmål 3</strong>: (Svært!) Formuler en algoritme/opskrift til sortering
+med reversals af en vilkårlig permutation (altså rækkefølge) af
+tallene 1, 2, ..., 20.  Forklar og diskutér jeres algoritme med
+en anden gruppe.</p>
+
+<p> I forbindelse med formuleringen af jeres sorteringsalgoritme, kan
+det måske være fint at afprøve den på et par eksempler. Her kan I fx
+bruge denne <a href="http://theory.cs.uni-bonn.de/info5/sbr/">Sorting
+by Reversals</a>-applet (indtast længden af permutationen (<i>N</i>)
+og tryk "Go". En reversal laves ved at trykke på det først og sidste
+tal i den delstreng der skal vendes).</p>
+
+<p> <strong>Spørgsmål 4</strong>: Hvor mange reversals skal jeres
+sorteringsalgoritme fra spørgsmål 3 bruge på at sortere
+permutationerne fra spørgsmål 1 og 2. Bruger den flere eller færre
+reversals end jeres svar på spørgsmål 1 og 2.</p>
+
+<h3>Sortering med fortegn</h3>
+<p> En variant af 'sorting by reversals'-problemet handler om at
+sortere permutaioner, hvor de enkelte tal har et fortegn '+' eller
+'-', og kaldes 'sorting signed permutations by
+reversals'-problemet. Hvis tallet '-1' vendes bliver det til '+1'
+osv. som vist i dette eksempel:</p>
+
+<p>
+<img width=200px src="signed-reversals.png" />
+</p>
+
+<p> Husk at vores motivation for at kigge på 'sorting by
+reversals'-problemet var at undersøge hvor mange reversals der kan
+forklare forskellen i rækkefølge af gener mellem to genomer. Indenfor
+biologien kan man typisk for hvert gen angive en retning, der angiver
+om genet skal 'læses' fra venstre mod højre, eller omvendt. Fortegnet
+på et tal i permutationen kan tolkes som genets retning, som vist i
+dette eksempel:</p>
+
+<p>
+<img width=200px src="sorting-genes.png" />
+</p>
+
+<p> <strong>Spørgsmål 5</strong>: Kan I sortere permutationen (0, -2, -1, 4, 3,
+5, -8, 6, 7, 9) med færre reversals end 5 som angivet i eksemplet
+ovenfor?</p>
+
+<p><strong>Spørgsmål 6</strong>: Hvor mange reversals skal I bruge på at sortere permutationen:</p>
+<pre>
++5, -7, +4, -6, +10, -1, -2, -8, -9, +3?
+</pre>
+</body>
+</html>
